@@ -17,7 +17,16 @@ jobs:
         with:
           node-version: 18
 
-      - name: Install Dependencies
+      - name: Install client Dependencies
+        working-directory: ./client
+        run: npm install
+
+      - name: Build client
+        working-directory: ./client
+        run: npm run build
+
+      - name: Install server Dependencies
+        working-directory: ./server
         run: npm install
 
       - name: Login to Docker Hub
